@@ -1,0 +1,9 @@
+<div class="bg-primary" style="margin-left: 10%;width: 80%">
+    <h6 align="center">{{post.title}}</h6>
+    <p>{{post.body}}</p>
+    
+</div>
+<button title="View comments" style="margin-left:10%; margin-top:-15px;" (click)="getCommentForPost(post)" class="btn btn-primary">
+        <mat-icon>add</mat-icon>
+</button>
+<comment-viewer [postId]="setPostIdForComment()"></comment-viewer>

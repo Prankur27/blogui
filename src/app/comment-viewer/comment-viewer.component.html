@@ -1,0 +1,6 @@
+<div *ngIf="showErrorOnFailure">
+    <h6 style="color:red">Error in retrieving comments. Please select any other post.</h6>
+</div>
+<div *ngFor="let comment of comments">
+    <comment [comment]="comment" > </comment>
+</div>

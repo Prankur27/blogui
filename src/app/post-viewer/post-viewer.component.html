@@ -1,0 +1,7 @@
+<div *ngFor="let post of posts|slice:0:postToLoad">
+    <br/><br/>
+    <post [post]="post" > </post>
+</div>
+<div *ngIf="posts && showLoadMore" style="margin-left: 80%">
+    <button class="btn btn-success"(click)="loadmore()">...Load More</button>
+</div>

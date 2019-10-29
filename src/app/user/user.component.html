@@ -1,0 +1,25 @@
+<form class="formwidth">
+  <div *ngIf="showLoader"  class="progress-loader" style="position: relative;margin-left: 50%;margin-right: 50%;margin-top:10%">
+      <mat-progress-spinner [mode]="'indeterminate'"></mat-progress-spinner>
+  </div>
+  
+  <div *ngIf="showErrorOnFailure">
+    <h5 style="color:red">Error in blog api. Please try again after some time.</h5>
+  </div>
+  <div *ngIf="!showLoader && !showErrorOnFailure" style="margin-top: 30px">
+    <h6 style="margin-left:30px"> Please select a user to view post</h6>
+  
+    <table class="fullwidth" cellspacing="0">
+        <tr>
+          <td *ngFor="let user of users; let i=index ">
+
+            <button class ="btn btn-primary" (click)="selectUser(user)"
+            >{{user.name.split(" ").slice(0,-1).join(" ")}}
+          </button>
+          </td>
+        </tr>
+    </table>
+    <h6 style="margin-left:40%; margin-top: 20px" *ngIf="selectedUser">Posts for {{selectedUser.name}}</h6>
+    <post-viewer [posts]="getUserPost()"></post-viewer>
+  </div>
+</form>
